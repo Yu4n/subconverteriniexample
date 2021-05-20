@@ -9,7 +9,14 @@ i = 0
 for url in urls:
     c = requests.get(url)
     lines = str(base64.b64decode(c.text)).split('\\n')
-    wt.write(lines[i] + '\n')
-    print(lines[i])
-    i += 1
+    if len(lines[i]) > 10:
+        wt.write(lines[i] + '\n')
+        print(lines[i])
+    else:
+        wt.write(lines[i - 1] + '\n')
+        print(lines[i - 1])
+    if i >= 24:
+        i = 20
+    else:
+        i += 1
 wt.close()
