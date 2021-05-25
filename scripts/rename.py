@@ -7,7 +7,7 @@ i = 1
 for url in urls:
     url = json.loads(url)
     url["ps"] = url["ps"][:3] + str(i)
-    url = str(url)
+    url = json.dumps(url, ensure_ascii=False)
     i += 1
     url = base64.b64encode(bytes(url, "utf-8"))
     print("vmess://" + url.decode())
