@@ -6,8 +6,8 @@ with open('VmsLines.txt', 'r') as f:
 i = 1
 for url in urls:
     url = json.loads(url)
-    url["ps"] = url["ps"][:3] + str(i)
-    url = json.dumps(url, ensure_ascii=False)
+    url["ps"] = url["ps"][:3] + str(i) + url["ps"][3:]
+    url = json.dumps(url, ensure_ascii=False, separators=(',', ':'))
     i += 1
     url = base64.b64encode(bytes(url, "utf-8"))
     print("vmess://" + url.decode())
