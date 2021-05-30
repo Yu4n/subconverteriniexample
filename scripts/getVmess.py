@@ -8,15 +8,12 @@ wt = open("VmsLines.txt", 'a', encoding='utf-8')
 i = 0
 for url in urls:
     c = requests.get(url)
-    lines = str(base64.b64decode(c.text)).split('\\n')
+    lines = str(base64.b64decode(c.text).decode()).split('\n')
     if len(lines[i]) > 10:
         wt.write(lines[i] + '\n')
         print(lines[i])
-    else:
-        wt.write(lines[i - 1] + '\n')
-        print(lines[i - 1])
-    if i >= 24:
-        i = 20
+    if i > 22:
+        i -= 5
     else:
         i += 1
 wt.close()
