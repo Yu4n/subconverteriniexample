@@ -18,6 +18,6 @@
                 break
             }
             let link = a + document.getElementsByTagName("tr")[i].cells[4].innerText + c
-            document.getElementById("userName").value = document.getElementById("userName").value + link + 'toReplace'
+            document.getElementById("userName").value += link + 'toReplace'
         }
 })();
