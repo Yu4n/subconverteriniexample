@@ -9,10 +9,10 @@ i = 0
 for url in urls:
     c = requests.get(url)
     lines = str(base64.b64decode(c.text).decode()).split('\n')
-    if len(lines[i]) > 10:
+    if lines[i] and len(lines[i]) > 10:
         wt.write(lines[i] + '\n')
         print(lines[i])
-    if i > 22:
+    if i == len(lines) - 1:
         i -= 5
     else:
         i += 1
