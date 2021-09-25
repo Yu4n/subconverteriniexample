@@ -3,7 +3,7 @@ import requests
 
 with open('v2ray.txt', 'r') as f:
     urls = [line.strip() for line in f]
-open("VmsLines.txt", 'w').close()
+# open("VmsLines.txt", 'w').close()  # Clear content
 wt = open("VmsLines.txt", 'a', encoding='utf-8')
 i = 0
 for url in urls:
