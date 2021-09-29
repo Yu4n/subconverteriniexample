@@ -7,8 +7,11 @@ with open('v2ray.txt', 'r') as f:
 wt = open("VmsLines.txt", 'a', encoding='utf-8')
 i = 0
 for url in urls:
-    c = requests.get(url)
-    lines = str(base64.b64decode(c.text).decode()).split('\n')[:-1]
+    try:
+        c = requests.get(url)
+        lines = str(base64.b64decode(c.text).decode()).split('\n')[:-1]
+    except UnicodeDecodeError or requests.exceptions.SSLError:
+        continue
     if lines[i] and len(lines[i]) > 10:
         wt.write(lines[i] + '\n')
         print(lines[i])
