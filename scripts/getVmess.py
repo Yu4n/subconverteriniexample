@@ -12,11 +12,12 @@ for url in urls:
         lines = str(base64.b64decode(c.text).decode()).split('\n')[:-1]
     except UnicodeDecodeError or requests.exceptions.SSLError:
         continue
-    if lines[i] and len(lines[i]) > 10:
-        wt.write(lines[i] + '\n')
-        print(lines[i])
-    if i == len(lines) - 1:
-        i -= 4
     else:
-        i += 1
+        if lines[i] and len(lines[i]) > 10:
+            wt.write(lines[i] + '\n')
+            print(lines[i])
+        if i == len(lines) - 1:
+            i -= 4
+        else:
+            i += 1
 wt.close()
