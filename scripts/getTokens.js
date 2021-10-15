@@ -17,7 +17,9 @@
             if (!document.getElementsByTagName("tr")[i] || !document.getElementById("userName")) {
                 break
             }
-            let link = a + document.getElementsByTagName("tr")[i].cells[4].innerText + c
-            document.getElementById("userName").value += link + 'toReplace'
+            if (document.getElementsByTagName("tr")[i].cells[5].innerText.length != 4){
+                let link = a + document.getElementsByTagName("tr")[i].cells[4].innerText + c
+                document.getElementById("userName").value += link + 'toReplace'
+            }
         }
 })();
