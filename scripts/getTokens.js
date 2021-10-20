@@ -22,4 +22,20 @@
                 document.getElementById("userName").value += link + 'toReplace'
             }
         }
+        if (document.getElementById("userName")) {
+            let textarea = document.getElementById("userName");
+            if (textarea.value) {
+                textarea.addEventListener('click', function() {
+                textarea.select()
+                try {
+                   var ok = document.execCommand('copy');
+                   if (!ok) {
+                       alert('Unable to copy!')
+                   }
+               } catch (err) {
+                   textarea.innerHTML = 'Unsupported Browser!';
+               }
+            });
+            }
+        }
 })();
