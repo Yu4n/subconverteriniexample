@@ -9,33 +9,33 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
     let a = 'https://api.suda.cat/sub?target=v2ray&url=https%3A%2F%2Fsuda.sub.koicloud.pw%2Flink%2F'
-        let c = '%3Fsub%3D3%26extend%3D1&config=https%3A//raw.githubusercontent.com/Yu4n/subconverteriniexample/master/Minimalist.ini&include=&emoji=false'
-        for (let i = 1; i < 11; i++) {
-            if (!document.getElementsByTagName("tr")[i] || !document.getElementById("userName")) {
-                break
-            }
-            if (document.getElementsByTagName("tr")[i].cells[5].innerText.length !== 4){
-                let link = a + document.getElementsByTagName("tr")[i].cells[4].innerText + c
-                document.getElementById("userName").value += link + 'toReplace'
-            }
+    let c = '%3Fsub%3D3%26extend%3D1&config=https%3A//raw.githubusercontent.com/Yu4n/subconverteriniexample/master/Minimalist.ini&include=&emoji=false'
+    for (let i = 1; i < 11; i++) {
+        if (!document.getElementsByTagName("tr")[i] || !document.getElementById("userName")) {
+            break
         }
-        if (document.getElementById("userName")) {
-            let textarea = document.getElementById("userName");
-            if (textarea.value) {
-                textarea.addEventListener('click', function() {
+        if (document.getElementsByTagName("tr")[i].cells[5].innerText.length !== 4) {
+            let link = a + document.getElementsByTagName("tr")[i].cells[4].innerText + c
+            document.getElementById("userName").value += link + 'toReplace'
+        }
+    }
+    if (document.getElementById("userName")) {
+        let textarea = document.getElementById("userName");
+        if (textarea.value) {
+            textarea.addEventListener('click', function () {
                 textarea.select()
                 try {
-                   let ok = document.execCommand('copy');
-                   if (!ok) {
-                       alert('Unable to copy!')
-                   }
-               } catch (err) {
-                   textarea.innerHTML = 'Unsupported Browser!';
-               }
+                    let ok = document.execCommand('copy');
+                    if (!ok) {
+                        alert('Unable to copy!')
+                    }
+                } catch (err) {
+                    textarea.innerHTML = 'Unsupported Browser!';
+                }
             });
-            }
         }
+    }
 })();
