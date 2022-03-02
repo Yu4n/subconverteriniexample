@@ -11,7 +11,7 @@
 
 (function () {
     'use strict';
-    let a = 'https://api.suda.cat/sub?target=v2ray&url=https%3A%2F%2Fsuda.sub.koicloud.pw%2Flink%2F'
+    let a = 'https://api.suda.cat/sub?target=clash&url=https%3A%2F%2Fsuda.sub.koicloud.pw%2Flink%2F'
     let c = '%3Fsub%3D3%26extend%3D1&config=https%3A//raw.githubusercontent.com/Yu4n/subconverteriniexample/master/Minimalist.ini&exclude=2.0&include=1.0&emoji=false'
     for (let i = 1; i < 11; i++) {
         if (!document.getElementsByTagName("tr")[i] || !document.getElementById("userName")) {
